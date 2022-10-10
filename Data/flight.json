@@ -1,0 +1,44 @@
+[
+    {
+        "flightID": 1,
+        "flightCode": "flight-1",
+        "from": "YUL",
+        "destination": "YYZ",
+        "day":1
+    },
+    {
+        "flightID": 2,
+        "flightCode": "flight-2",
+        "from": "YUL",
+        "destination": "YYC",
+        "day":1
+    },
+    {
+        "flightID": 3,
+        "flightCode": "flight-3",
+        "from": "YUL",
+        "destination": "YVR",
+        "day":1
+    },
+    {
+        "flightID": 4,
+        "flightCode": "flight-4",
+        "from": "YUL",
+        "destination": "YYZ",
+        "day":2
+    },
+    {
+        "flightID": 5,
+        "flightCode": "flight-5",
+        "from": "YUL",
+        "destination": "YYC",
+        "day":2
+    },
+    {
+        "flightID": 6,
+        "flightCode": "flight-6",
+        "from": "YUL",
+        "destination": "YVR",
+        "day":2
+    }
+]

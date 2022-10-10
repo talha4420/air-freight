@@ -1,0 +1,23 @@
+[
+    {
+        "airportID": 1,
+        "code": "YUL",
+        "name": "Montreal Airport"
+    },
+    {
+        "airportID": 2,
+        "code":"YYZ",
+        "name": "Toronto Airport"
+    },
+    {
+        "airportID": 3,
+        "code": "YYC",
+        "name": "Calgary Airport"
+    },
+    {
+        "airportID": 4,
+        "code": "YVR",
+        "name": "Vancouver Airport"
+    }
+
+]
