@@ -14,6 +14,10 @@ namespace AirFreight.Models
             this.orderId = nrOfInstances;
             nrOfInstances++;
         }
+        public string service{get;set;}
+        public int priority{get;set;}
+
+
 
     }
 }

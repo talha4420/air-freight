@@ -28,6 +28,22 @@ namespace AirFreight.Services
                 {
                     order.destination = airports.Where(u=> u.code == item.Value["destination"].Value).SingleOrDefault();
                 }
+
+                order.service = item.Value["service"].Value;
+
+                switch(order.service){
+                    case "same-day":
+                        order.priority = 1;
+                        break;
+                    case "next-day":
+                        order.priority = 2;
+                        break;
+                    case "regular":
+                        order.priority = 3;
+                        break;
+                    default:
+                    break;
+                }
                 
                 Allorders.Add(order);
             }     
@@ -37,9 +53,10 @@ namespace AirFreight.Services
 
         public void assignFlights(List<Flight> AllFlights)
         {
-            foreach(Order order in Allorders)
+            foreach(Order order in Allorders.OrderBy(u=> u.priority).ToList())
             {
-                var availableFLights  = AllFlights.Where(u=> u.destination == order.destination && u.capacity > 0).OrderBy(u=> u.day).ToList();
+                var availableFLights  = AllFlights.Where(u=> u.destination == order.destination && u.capacity > 0)
+                    .OrderBy(u=> u.day).ToList();
                 if(availableFLights != null && availableFLights.Count> 0){
                     order.flight = availableFLights.FirstOrDefault();
                 }
@@ -58,7 +75,9 @@ namespace AirFreight.Services
             {
                 if(order.flight != null)
                 {
-                    Console.WriteLine("order: {0}, flightNumber: {1}, departure: {2}, arrival: {3}, day: {4}", order.orderCode, order.flight.flightID, order.flight.from.code, order.flight.destination.code, order.flight.day);       
+                    Console.WriteLine("order: {0}, flightNumber: {1}, departure: {2}, arrival: {3}, day: {4}, service: {5}, priority: {6}", 
+                        order.orderCode, order.flight.flightID, order.flight.from.code, order.flight.destination.code, 
+                        order.flight.day, order.service, order.priority);       
                 }
                 else{
                     Console.WriteLine("order: {0}, flightNumber: not scheduled", order.orderCode);       

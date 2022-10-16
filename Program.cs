@@ -14,7 +14,7 @@ internal class Program
         flightService.showAllFlights();
             
 
-        OrderService orderService = new OrderService("Data", "orders.json", airports );
+        OrderService orderService = new OrderService("Data", "coding-assigment-orders-part-two.json", airports );
         List<Order> Allorders = orderService.getAllOrders();
         orderService.assignFlights(AllFlights);
         orderService.showAllOrders();
